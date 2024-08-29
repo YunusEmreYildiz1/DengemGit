@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:untitled6/PlayerScreen.dart';
+import 'package:untitled6/player_screen.dart';
 
 class Music extends StatelessWidget{
   const Music({super.key});
