@@ -6,6 +6,7 @@ import 'package:untitled6/music.dart';
 import 'package:untitled6/introduction.dart';
 import 'package:untitled6/loadingscreen.dart';
 import 'package:untitled6/breathe.dart';
+import 'package:untitled6/profil_sayfa.dart';
 
 void main(){
   runApp(AnaUygulama());
@@ -16,7 +17,7 @@ class AnaUygulama extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoadingScreen(),
+      home: profil(),
     );
   }
 
