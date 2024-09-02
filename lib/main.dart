@@ -8,9 +8,12 @@ import 'package:untitled6/loadingscreen.dart';
 import 'package:untitled6/breathe.dart';
 import 'package:untitled6/profil_sayfa.dart';
 
-void main(){
-  runApp(AnaUygulama());
+void main() {
+  runApp(MaterialApp(
+    home: Introduction(),
+  ));
 }
+
 
 class AnaUygulama extends StatelessWidget {
 

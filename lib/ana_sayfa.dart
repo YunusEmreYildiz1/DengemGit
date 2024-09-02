@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class AnaSayfa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,10 @@ class AnaSayfa extends StatelessWidget {
           children: [
             SizedBox(height: 21), //Hoşgeldin arman yazısının yüksekliğini ayarlar
             Text('  Hoşgeldin, Arman',
-                style: GoogleFonts.poppins(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold)),
+                style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold)),
           ],
         ),
         automaticallyImplyLeading: false,
@@ -28,13 +30,9 @@ class AnaSayfa extends StatelessWidget {
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(30.0),
-          child: Container(
-          ),
+          child: Container(),
         ),
       ),
-
-
-
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -43,45 +41,24 @@ class AnaSayfa extends StatelessWidget {
             SizedBox(height: 1), //Bilgilendirme yazısı konum ayarlama
             Text(
               '  Bilgilendirme',
-              style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600),
+              style: GoogleFonts.poppins(
+                  fontSize: 20, fontWeight: FontWeight.w600),
             ),
             SizedBox(height: 10),
             Container(
-
-
-                      // PADİNG GEREKLİ Mİ BİLMİYORUM
-              /*
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.45),
-                    spreadRadius: 3,
-                    blurRadius: 5,
-                    offset: Offset(0, 3),
-                  ),
-                ],
-              ),
-              */
-
-
               child: Row(
                 children: [
                   SizedBox(width: 10),
                   Expanded(
                     child: InkWell(
                       onTap: () {
-
-
                         // Resim tıklanıldığında yapılacak işlemler
                         print('Resim tıklandı');
-
-
                       },
-                      splashColor: Colors.purple.withOpacity(0.5), // Tıklama sırasında görünen efekt rengi
-                      highlightColor: Colors.purple.withOpacity(0.3), // Tıklama sırasında görünen vurgu rengi
+                      splashColor:
+                      Colors.purple.withOpacity(0.5), // Tıklama sırasında görünen efekt rengi
+                      highlightColor:
+                      Colors.purple.withOpacity(0.3), // Tıklama sırasında görünen vurgu rengi
                       child: Image.asset(
                         'assets/images/gorsel2.JPG',
                         fit: BoxFit.contain,
@@ -91,7 +68,6 @@ class AnaSayfa extends StatelessWidget {
                 ],
               ),
             ),
-
             SizedBox(height: 15),
             Container(
               child: Row(
@@ -99,32 +75,24 @@ class AnaSayfa extends StatelessWidget {
                 children: [
                   Text(
                     '   GÖREVLER',
-                    style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600),
+                    style: GoogleFonts.poppins(
+                        fontSize: 20, fontWeight: FontWeight.w600),
                   ),
                   GestureDetector(
-
-
                     onTap: () {
                       // 'Tümünü gör' metnine tıklandığında yapılacak işlemler
-
-
                       print('Tümünü gör metnine tıklandı');
                     },
-
                     child: Text(
                       'Tümünü gör        ',
-                      style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w600),
+                      style: GoogleFonts.poppins(
+                          fontSize: 12, fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],
               ),
             ),
-
             SizedBox(height: 10),
-
-            //Padding amacı yanlardan boşluk bırakabilmek
-
-
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 11.0), // Yandan boşluk bırakma
               child: IntrinsicHeight(
@@ -134,41 +102,36 @@ class AnaSayfa extends StatelessWidget {
                   children: [
                     Expanded(
                       child: GestureDetector(
-
                         onTap: () {
                           // İş Başvurusu kartına tıklandığında yapılacak işlemler
                           print('İş Başvurusu kartına tıklandı');
-                          },
-
-                        child: _buildTaskCard('İş Başvurusu', 'Okuma Süresi: 10dk', 'assets/images/gorsel7.JPG'),
+                        },
+                        child: _buildTaskCard('İş Başvurusu', 'Okuma Süresi: 10dk',
+                            'assets/images/gorsel7.JPG'),
                       ),
                     ),
                     SizedBox(width: 18),
                     Expanded(
                       child: GestureDetector(
-
-
                         onTap: () {
                           // Topluluk Önünde Konuşmak kartına tıklandığında yapılacak işlemler
                           print('Topluluk Önünde Konuşmak kartına tıklandı');
-
-                          },
-                        child: _buildTaskCard('Topluluk Önünde Konuşmak', 'Okuma Süresi: 8dk', 'assets/images/gorsel4.JPG'),
+                        },
+                        child: _buildTaskCard(
+                            'Topluluk Önünde Konuşmak',
+                            'Okuma Süresi: 8dk',
+                            'assets/images/gorsel4.JPG'),
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-
-
             SizedBox(height: 20),
-
-
-
             Text(
               '  Egzersizler',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: GoogleFonts.poppins(
+                  fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
             Padding(
@@ -183,18 +146,10 @@ class AnaSayfa extends StatelessWidget {
                   _buildExerciseButton('Nefes Al', Color(0xFFB5DDEB)),
                 ],
               ),
-
             ),
-
-
-
           ],
         ),
       ),
-
-
-
-
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         currentIndex: 0, // İlk sekme seçili
@@ -248,7 +203,8 @@ class AnaSayfa extends StatelessWidget {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500),
+            style: GoogleFonts.poppins(
+                fontSize: 14, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 17),
           Text(
@@ -265,7 +221,6 @@ class AnaSayfa extends StatelessWidget {
     String nameToPrint = '';
 
     // Buton başlığına ne yapsın !!!
-
     if (title == 'Müzik') {
       nameToPrint = 'müzik';
     } else if (title == 'Meditasyon') {
@@ -281,7 +236,6 @@ class AnaSayfa extends StatelessWidget {
       onTap: () {
         print(nameToPrint);
       },
-
       child: Container(
         width: 168,
         padding: EdgeInsets.all(19),
@@ -292,7 +246,8 @@ class AnaSayfa extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: GoogleFonts.poppins(
+                fontSize: 15, fontWeight: FontWeight.w600),
           ),
         ),
       ),

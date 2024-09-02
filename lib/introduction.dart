@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:untitled6/ana_sayfa.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Introduction extends StatefulWidget {
   const Introduction({super.key});
+
   @override
   State<Introduction> createState() {
     return _Introduction();
@@ -71,7 +74,8 @@ class _Introduction extends State<Introduction> {
       setState(() {
         currentPicture = 'assets/images/sbg.png';
         currentText1 = 'STRESSİZ BİR GÜN';
-        currentText2 = 'Zihnini sakinleştirmek için meditasyonun huzur dolu dünyasına hoş geldin';
+        currentText2 =
+        'Zihnini sakinleştirmek için meditasyonun huzur dolu dünyasına hoş geldin';
         currentLarge = Container(
           width: 10,
           height: 5,
@@ -98,7 +102,15 @@ class _Introduction extends State<Introduction> {
         );
       });
     }
-    pageNo++;
+
+    if (pageNo < 3) {
+      pageNo++;
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => AnaSayfa()),
+      );
+    }
   }
 
   @override
@@ -132,7 +144,7 @@ class _Introduction extends State<Introduction> {
                       children: [
                         Text(
                           currentText1,
-                          style: const TextStyle(
+                          style: GoogleFonts.poppins(
                               color: Colors.black,
                               fontSize: 20,
                               fontWeight: FontWeight.bold),
@@ -141,8 +153,8 @@ class _Introduction extends State<Introduction> {
                         const SizedBox(height: 10),
                         Text(
                           currentText2,
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 16),
+                          style: GoogleFonts.poppins(
+                              color: Colors.black, fontSize: 14),
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -167,25 +179,28 @@ class _Introduction extends State<Introduction> {
                     child: ElevatedButton(
                       onPressed: changePageInfo,
                       style: ElevatedButton.styleFrom(
-                          padding:
-                          const EdgeInsets.symmetric(horizontal: 150),
-                          backgroundColor:
-                          const Color.fromARGB(255, 139, 121, 252),
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          textStyle: const TextStyle(fontSize: 16)),
-                      child: const Text('Devam'),
+                        padding: const EdgeInsets.symmetric(horizontal: 150),
+                        backgroundColor:
+                        const Color.fromARGB(255, 139, 121, 252),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        textStyle: GoogleFonts.poppins(
+                            fontSize: 20, fontWeight: FontWeight.w600),
+                      ),
+                      child: const Text(
+                        'Devam',
+                        style: TextStyle(fontSize: 16),
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
-
   }
 }
