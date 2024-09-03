@@ -14,7 +14,7 @@ class AnaSayfa extends StatelessWidget {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 21),
+            SizedBox(height: 28),
             Text('  Hoşgeldin, Arman',
                 style: GoogleFonts.poppins(
                     color: Colors.white,
@@ -29,7 +29,7 @@ class AnaSayfa extends StatelessWidget {
           ),
         ),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(30.0),
+          preferredSize: const Size.fromHeight(32.0),
           child: Container(),
         ),
       ),
@@ -66,7 +66,7 @@ class AnaSayfa extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 9),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,7 +121,7 @@ class AnaSayfa extends StatelessWidget {
               Text(
                 '   Egzersizler',
                 style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.w600),
+                    fontSize: 18, fontWeight: FontWeight.w600),
               ),
               SizedBox(height: 10),
               Padding(
