@@ -14,18 +14,18 @@ class AnaSayfa extends StatelessWidget {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 21), //Hoşgeldin arman yazısının yüksekliğini ayarlar
+            SizedBox(height: 21),
             Text('  Hoşgeldin, Arman',
                 style: GoogleFonts.poppins(
                     color: Colors.white,
-                    fontSize: 25,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold)),
           ],
         ),
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30), //Appbardaki kıvrımlı yerin açısını belirler
+            bottom: Radius.circular(30),
           ),
         ),
         bottom: PreferredSize(
@@ -33,126 +33,117 @@ class AnaSayfa extends StatelessWidget {
           child: Container(),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 1), //Bilgilendirme yazısı konum ayarlama
-            Text(
-              '  Bilgilendirme',
-              style: GoogleFonts.poppins(
-                  fontSize: 20, fontWeight: FontWeight.w600),
-            ),
-            SizedBox(height: 10),
-            Container(
-              child: Row(
-                children: [
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        // Resim tıklanıldığında yapılacak işlemler
-                        print('Resim tıklandı');
-                      },
-                      splashColor:
-                      Colors.purple.withOpacity(0.5), // Tıklama sırasında görünen efekt rengi
-                      highlightColor:
-                      Colors.purple.withOpacity(0.3), // Tıklama sırasında görünen vurgu rengi
-                      child: Image.asset(
-                        'assets/images/gorsel2.JPG',
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 1),
+              Text(
+                '   Bilgilendirme',
+                style: GoogleFonts.poppins(
+                    fontSize: 18, fontWeight: FontWeight.w600),
               ),
-            ),
-            SizedBox(height: 15),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '   GÖREVLER',
-                    style: GoogleFonts.poppins(
-                        fontSize: 20, fontWeight: FontWeight.w600),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      // 'Tümünü gör' metnine tıklandığında yapılacak işlemler
-                      print('Tümünü gör metnine tıklandı');
-                    },
-                    child: Text(
-                      'Tümünü gör        ',
-                      style: GoogleFonts.poppins(
-                          fontSize: 12, fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 11.0), // Yandan boşluk bırakma
-              child: IntrinsicHeight(
-                // IntrinsicHeight kartların aynı boyutta olmasını sağlıyor
+              SizedBox(height: 8),
+              Container(
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    SizedBox(width: 10),
                     Expanded(
-                      child: GestureDetector(
+                      child: InkWell(
                         onTap: () {
-                          // İş Başvurusu kartına tıklandığında yapılacak işlemler
-                          print('İş Başvurusu kartına tıklandı');
+                          print('Resim tıklandı');
                         },
-                        child: _buildTaskCard('İş Başvurusu', 'Okuma Süresi: 10dk',
-                            'assets/images/gorsel7.JPG'),
-                      ),
-                    ),
-                    SizedBox(width: 18),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          // Topluluk Önünde Konuşmak kartına tıklandığında yapılacak işlemler
-                          print('Topluluk Önünde Konuşmak kartına tıklandı');
-                        },
-                        child: _buildTaskCard(
-                            'Topluluk Önünde Konuşmak',
-                            'Okuma Süresi: 8dk',
-                            'assets/images/gorsel4.JPG'),
+                        splashColor: Colors.purple.withOpacity(0.5),
+                        highlightColor: Colors.purple.withOpacity(0.3),
+                        child: Image.asset(
+                          'assets/images/gorsell3.JPG',
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              '  Egzersizler',
-              style: GoogleFonts.poppins(
-                  fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 11.0), //yandan boşluk bırakmayı sağlar
-              child: Wrap(
-                spacing: 20,
-                runSpacing: 12,
-                children: [
-                  _buildExerciseButton('Müzik', Color(0xFFD1C6FE)),
-                  _buildExerciseButton('Meditasyon', Color(0xFFD7EDE2)),
-                  _buildExerciseButton('Mindfulness', Color(0xFFFAE5C2)),
-                  _buildExerciseButton('Nefes Al', Color(0xFFB5DDEB)),
-                ],
+              SizedBox(height: 10),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '   Görevler',
+                      style: GoogleFonts.poppins(
+                          fontSize: 18, fontWeight: FontWeight.w600),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        print('Tümünü gör metnine tıklandı');
+                      },
+                      child: Text(
+                        'Tümünü gör        ',
+                        style: GoogleFonts.poppins(
+                            fontSize: 12, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: 10),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 11.0),
+                child: IntrinsicHeight(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            print('İş Başvurusu kartına tıklandı');
+                          },
+                          child: _buildTaskCard('İş Başvurusu                 ㅤ', 'Okuma Süresi: 10dk', 'assets/images/gorsel7.JPG'),
+                        ),
+                      ),
+                      SizedBox(width: 15),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            print('Topluluk Önünde Konuşmak kartına tıklandı');
+                          },
+                          child: _buildTaskCard('Topluluk Önünde Konuşma', 'Okuma Süresi: 8dk', 'assets/images/gorsel4.JPG'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(
+                '   Egzersizler',
+                style: GoogleFonts.poppins(
+                    fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              SizedBox(height: 10),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 11.0),
+                child: Wrap(
+                  spacing: 20,
+                  runSpacing: 12,
+                  children: [
+                    _buildExerciseButton('Müzik', Color(0xFFD1C6FE)),
+                    _buildExerciseButton('Meditasyon', Color(0xFFD7EDE2)),
+                    _buildExerciseButton('Mindfulness', Color(0xFFFAE5C2)),
+                    _buildExerciseButton('Nefes Al', Color(0xFFB5DDEB)),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
-        currentIndex: 0, // İlk sekme seçili
+        currentIndex: 0,
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
@@ -204,13 +195,18 @@ class AnaSayfa extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
-                fontSize: 14, fontWeight: FontWeight.w500),
+                fontSize: 11, fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: 17),
-          Text(
-            subtitle,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(fontSize: 14),
+          SizedBox(height: 40),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(fontSize: 9),
+            ),
           ),
         ],
       ),
@@ -220,7 +216,6 @@ class AnaSayfa extends StatelessWidget {
   Widget _buildExerciseButton(String title, Color color) {
     String nameToPrint = '';
 
-    // Buton başlığına ne yapsın !!!
     if (title == 'Müzik') {
       nameToPrint = 'müzik';
     } else if (title == 'Meditasyon') {
@@ -232,12 +227,11 @@ class AnaSayfa extends StatelessWidget {
     }
 
     return GestureDetector(
-      //basıldığında ne yapsın !!!
       onTap: () {
         print(nameToPrint);
       },
       child: Container(
-        width: 168,
+        width: 152,
         padding: EdgeInsets.all(19),
         decoration: BoxDecoration(
           color: color,
