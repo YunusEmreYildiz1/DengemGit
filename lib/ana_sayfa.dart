@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'breathe.dart';
 
 class AnaSayfa extends StatelessWidget {
   @override
@@ -130,10 +130,10 @@ class AnaSayfa extends StatelessWidget {
                   spacing: 20,
                   runSpacing: 12,
                   children: [
-                    _buildExerciseButton('Müzik', Color(0xFFD1C6FE)),
-                    _buildExerciseButton('Meditasyon', Color(0xFFD7EDE2)),
-                    _buildExerciseButton('Mindfulness', Color(0xFFFAE5C2)),
-                    _buildExerciseButton('Nefes Al', Color(0xFFB5DDEB)),
+                    _buildExerciseButton(context, 'Müzik', Color(0xFFD1C6FE)),
+                    _buildExerciseButton(context, 'Meditasyon', Color(0xFFD7EDE2)),
+                    _buildExerciseButton(context, 'Mindfulness', Color(0xFFFAE5C2)),
+                    _buildExerciseButton(context, 'Nefes Al', Color(0xFFB5DDEB)),
                   ],
                 ),
               ),
@@ -213,7 +213,7 @@ class AnaSayfa extends StatelessWidget {
     );
   }
 
-  Widget _buildExerciseButton(String title, Color color) {
+  Widget _buildExerciseButton(BuildContext context, String title, Color color) {
     String nameToPrint = '';
 
     if (title == 'Müzik') {
@@ -228,7 +228,14 @@ class AnaSayfa extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        print(nameToPrint);
+        if (title == 'Nefes Al') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Breathe()),
+          );
+        } else {
+          print(nameToPrint);
+        }
       },
       child: Container(
         width: 152,

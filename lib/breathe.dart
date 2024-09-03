@@ -54,48 +54,80 @@ class _BreatheState extends State<Breathe> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                _statusText,
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+        body: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/nefes_al_arkaplan.png'),
+                  fit: BoxFit.cover,
+                ),
               ),
-              SizedBox(height: 20),
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      AnimatedBuilder(
-                        animation: _animation,
-                        builder: (context, child) {
-                          return Container(
-                            width: _animation.value,
-                            height: _animation.value,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: const Color.fromARGB(73, 155, 39, 176),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.purple,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      _statusText,
+                      style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ],
+                    SizedBox(height: 20),
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AnimatedBuilder(
+                              animation: _animation,
+                              builder: (context, child) {
+                                return Container(
+                                  width: _animation.value,
+                                  height: _animation.value,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Color(0xFFBABCC6),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color(0xFF8E92AB),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
+            ),
+            Positioned(
+              top: 50,
+              left: 20,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white.withOpacity(0.7),
+                  ),
+                  child: Center(
+                    child: Icon(Icons.close, color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
