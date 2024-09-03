@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled6/ana_sayfa.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 class Introduction extends StatefulWidget {
   const Introduction({super.key});
 
@@ -12,7 +13,7 @@ class Introduction extends StatefulWidget {
 }
 
 class _Introduction extends State<Introduction> {
-  String currentPicture = 'assets/images/rb.png';
+  String currentPicture = 'assets/images/ilksayfa1.png';
   String currentText1 = 'RAHAT BAŞLANGIÇ';
   String currentText2 = 'Güne rahat ve sakin başlangıç';
 
@@ -48,7 +49,7 @@ class _Introduction extends State<Introduction> {
   void changePageInfo() {
     if (pageNo == 1) {
       setState(() {
-        currentPicture = 'assets/images/hbs.png';
+        currentPicture = 'assets/images/ikincisayfa2.png';
         currentText1 = 'HUZURLU BİR SABAH';
         currentText2 = 'Huzurlu bir güne küçük bir adım';
         currentLarge = Container(
@@ -72,10 +73,9 @@ class _Introduction extends State<Introduction> {
 
     if (pageNo == 2) {
       setState(() {
-        currentPicture = 'assets/images/sbg.png';
+        currentPicture = 'assets/images/ucuncusayfa.png';
         currentText1 = 'STRESSİZ BİR GÜN';
-        currentText2 =
-        'Zihnini sakinleştirmek için meditasyonun huzur dolu dünyasına hoş geldin';
+        currentText2 = 'Zihnini sakinleştirmek için meditasyonun huzur dolu dünyasına hoş geldin';
         currentLarge = Container(
           width: 10,
           height: 5,
@@ -114,7 +114,7 @@ class _Introduction extends State<Introduction> {
   }
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
@@ -124,8 +124,13 @@ class _Introduction extends State<Introduction> {
               color: const Color.fromARGB(255, 142, 151, 253),
               child: Align(
                 alignment: Alignment.bottomCenter,
-                child: Image.asset(
-                  currentPicture,
+                child: Container(
+                  width: 500,
+                  height: 500,
+                  child: Image.asset(
+                    currentPicture,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -145,16 +150,19 @@ class _Introduction extends State<Introduction> {
                         Text(
                           currentText1,
                           style: GoogleFonts.poppins(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                            color: Colors.black,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 10),
                         Text(
                           currentText2,
                           style: GoogleFonts.poppins(
-                              color: Colors.black, fontSize: 14),
+                            color: Colors.black,
+                            fontSize: 14,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -169,7 +177,7 @@ class _Introduction extends State<Introduction> {
                         const SizedBox(width: 5),
                         currentMedium,
                         const SizedBox(width: 5),
-                        currentSmall
+                        currentSmall,
                       ],
                     ),
                   ),
@@ -180,14 +188,15 @@ class _Introduction extends State<Introduction> {
                       onPressed: changePageInfo,
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(horizontal: 150),
-                        backgroundColor:
-                        const Color.fromARGB(255, 139, 121, 252),
+                        backgroundColor: const Color.fromARGB(255, 139, 121, 252),
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                         textStyle: GoogleFonts.poppins(
-                            fontSize: 20, fontWeight: FontWeight.w600),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       child: const Text(
                         'Devam',
