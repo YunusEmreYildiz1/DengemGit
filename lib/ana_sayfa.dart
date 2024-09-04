@@ -1,9 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:untitled6/classic_music_player.dart';
+import 'package:untitled6/info.dart';
+import 'package:untitled6/list_screen.dart';
+import 'package:untitled6/meditation.dart';
+import 'package:untitled6/mindfulness.dart';
+import 'package:untitled6/profil_sayfa.dart';
+import 'package:untitled6/tumunu_gor_gorevler.dart';
 import 'breathe.dart';
+import 'package:untitled6/info_provider.dart';
 
 class AnaSayfa extends StatelessWidget {
+  String _title = infoList[0].title;
+  String _description = infoList[0].description;
+  String _imagePath = infoList[0].imagePath;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,9 +62,12 @@ class AnaSayfa extends StatelessWidget {
                     SizedBox(width: 10),
                     Expanded(
                       child: InkWell(
-                        onTap: () {
-                          print('Resim tıklandı');
-                        },
+                        /*onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Info()),
+                          );
+                        }, bu kısmı çözemedim*/
                         splashColor: Colors.purple.withOpacity(0.5),
                         highlightColor: Colors.purple.withOpacity(0.3),
                         child: Image.asset(
@@ -78,7 +91,10 @@ class AnaSayfa extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        print('Tümünü gör metnine tıklandı');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => TumGorev()),
+                        );
                       },
                       child: Text(
                         'Tümünü gör        ',
@@ -101,7 +117,10 @@ class AnaSayfa extends StatelessWidget {
                           onTap: () {
                             print('İş Başvurusu kartına tıklandı');
                           },
-                          child: _buildTaskCard('İş Başvurusu                 ㅤ', 'Okuma Süresi: 10dk', 'assets/images/gorsel7.JPG'),
+                          child: _buildTaskCard(
+                              'İş Başvurusu                 ㅤ',
+                              'Okuma Süresi: 10dk',
+                              'assets/images/gorsel7.JPG'),
                         ),
                       ),
                       SizedBox(width: 15),
@@ -110,7 +129,8 @@ class AnaSayfa extends StatelessWidget {
                           onTap: () {
                             print('Topluluk Önünde Konuşmak kartına tıklandı');
                           },
-                          child: _buildTaskCard('Topluluk Önünde Konuşma', 'Okuma Süresi: 8dk', 'assets/images/gorsel4.JPG'),
+                          child: _buildTaskCard('Topluluk Önünde Konuşma',
+                              'Okuma Süresi: 8dk', 'assets/images/gorsel4.JPG'),
                         ),
                       ),
                     ],
@@ -131,9 +151,12 @@ class AnaSayfa extends StatelessWidget {
                   runSpacing: 12,
                   children: [
                     _buildExerciseButton(context, 'Müzik', Color(0xFFD1C6FE)),
-                    _buildExerciseButton(context, 'Meditasyon', Color(0xFFD7EDE2)),
-                    _buildExerciseButton(context, 'Mindfulness', Color(0xFFFAE5C2)),
-                    _buildExerciseButton(context, 'Nefes Al', Color(0xFFB5DDEB)),
+                    _buildExerciseButton(
+                        context, 'Meditasyon', Color(0xFFD7EDE2)),
+                    _buildExerciseButton(
+                        context, 'Mindfulness', Color(0xFFFAE5C2)),
+                    _buildExerciseButton(
+                        context, 'Nefes Al', Color(0xFFB5DDEB)),
                   ],
                 ),
               ),
@@ -148,21 +171,49 @@ class AnaSayfa extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'Anasayfa',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.music_note),
-            label: 'Music',
+            label: 'Müzik',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.message),
+            icon: Icon(Icons.chat_bubble_outline),
             label: 'Yanındayım',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person_outline),
             label: 'Profil',
           ),
         ],
+        onTap: (i) {
+          if (i == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AnaSayfa()),
+            );
+          }
+          if (i == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const ClassicMusicPlayer()),
+            );
+          }
+          if (i == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PsychologistSelectionScreen()),
+            );
+          }
+          if (i == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => profil()),
+            );
+          }
+        },
       ),
     );
   }
@@ -194,8 +245,8 @@ class AnaSayfa extends StatelessWidget {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(
-                fontSize: 11, fontWeight: FontWeight.w600),
+            style:
+            GoogleFonts.poppins(fontSize: 11, fontWeight: FontWeight.w600),
           ),
           SizedBox(height: 40),
           Positioned(
@@ -236,6 +287,30 @@ class AnaSayfa extends StatelessWidget {
         } else {
           print(nameToPrint);
         }
+        if (title == 'Müzik') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ClassicMusicPlayer()),
+          );
+        } else {
+          print(nameToPrint);
+        }
+        if (title == 'Meditasyon') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Meditation()),
+          );
+        } else {
+          print(nameToPrint);
+        }
+        if (title == 'Mindfulness') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Mindfulness()),
+          );
+        } else {
+          print(nameToPrint);
+        }
       },
       child: Container(
         width: 152,
@@ -247,8 +322,8 @@ class AnaSayfa extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: GoogleFonts.poppins(
-                fontSize: 15, fontWeight: FontWeight.w600),
+            style:
+            GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.w600),
           ),
         ),
       ),
