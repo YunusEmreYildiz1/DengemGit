@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled6/ana_sayfa.dart';
+import 'package:untitled6/classic_music_player.dart';
+import 'package:untitled6/list_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,7 +27,13 @@ class profil extends StatelessWidget {
         centerTitle: true, // Başlığı ortalar
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => AnaSayfa()),
+            );
+          },
         ),
         title: Text(
           "Hesabım",
@@ -115,16 +124,16 @@ class profil extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
+        currentIndex: 0,
         type: BottomNavigationBarType.fixed,
-        currentIndex: 3,  // Hesabım sayfası
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'Anasayfa',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.music_note),
-            label: 'Music',
+            label: 'Müzik',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat_bubble_outline),
@@ -132,9 +141,38 @@ class profil extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
-            label: 'Hesabım',
+            label: 'Profil',
           ),
         ],
+        onTap: (i) {
+          if (i == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AnaSayfa()),
+            );
+          }
+          if (i == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const ClassicMusicPlayer()),
+            );
+          }
+          if (i == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PsychologistSelectionScreen()),
+            );
+          }
+          if (i == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => profil()),
+            );
+          }
+        },
       ),
     );
   }

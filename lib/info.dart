@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'prices.dart';
 
 class Info extends StatefulWidget {
-  const Info({super.key, required this.title, required this.description});
-
   final String title;
   final String description;
+  final String imagePath;
+
+  const Info(this.title, this.description, this.imagePath, {Key? key}) : super(key: key);
 
   @override
   State<Info> createState() => _InfoState();
@@ -14,18 +14,20 @@ class Info extends StatefulWidget {
 class _InfoState extends State<Info> {
   late String _title;
   late String _description;
+  late String _imagePath;
   final DraggableScrollableController _scrollableController =
-      DraggableScrollableController();
+  DraggableScrollableController();
   bool _isFullyOpened = false;
 
   @override
   void initState() {
     super.initState();
+
     _title = widget.title;
     _description = widget.description;
+    _imagePath = widget.imagePath;
 
     _scrollableController.addListener(() {
-      print(_scrollableController.size);
       setState(() {
         _isFullyOpened = _scrollableController.size == 0.95;
       });
@@ -55,7 +57,7 @@ class _InfoState extends State<Info> {
                     child: Transform.scale(
                       scale: 1.65,
                       child: Image.asset(
-                        'assets/images/anskeyete.png',
+                        _imagePath,
                         width: 500,
                         height: 400,
                       ),
@@ -97,8 +99,7 @@ class _InfoState extends State<Info> {
                                 child: Container(
                                   width: 40,
                                   height: 5,
-                                  margin:
-                                      const EdgeInsets.symmetric(vertical: 10),
+                                  margin: const EdgeInsets.symmetric(vertical: 10),
                                   decoration: BoxDecoration(
                                     color: Colors.grey,
                                     borderRadius: BorderRadius.circular(10),

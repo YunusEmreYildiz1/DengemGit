@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:untitled6/ana_sayfa.dart';
+import 'package:untitled6/classic_music_player.dart';
+import 'package:untitled6/list_screen.dart';
+import 'package:untitled6/profil_sayfa.dart';
 
 class Task {
   final String title;
@@ -55,7 +59,8 @@ class TumGorev extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('GÖREVLER',
-            style: GoogleFonts.poppins(fontSize: 23, fontWeight: FontWeight.bold)),
+            style:
+            GoogleFonts.poppins(fontSize: 23, fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -63,8 +68,10 @@ class TumGorev extends StatelessWidget {
           icon: Icon(Icons.arrow_back, color: Colors.black),
           //geri tuşuna basıldığında ne olsun
           onPressed: () {
-
-
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AnaSayfa()),
+            );
           },
         ),
       ),
@@ -75,7 +82,8 @@ class TumGorev extends StatelessWidget {
           children: [
             Text(
               '  Tüm Görevler',
-              style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600),
+              style: GoogleFonts.poppins(
+                  fontSize: 20, fontWeight: FontWeight.w600),
             ),
             SizedBox(height: 16),
             Expanded(
@@ -117,12 +125,15 @@ class TumGorev extends StatelessWidget {
                               children: [
                                 Text(
                                   tasks[index].title,
-                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(height: 4),
                                 Text(
                                   tasks[index].subtitle,
-                                  style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.grey[600]),
                                 ),
                               ],
                             ),
@@ -137,22 +148,58 @@ class TumGorev extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: NavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
-        height: 80,
-        elevation: 0,
-        selectedIndex: 0,  //hangisi seçili olduğu gösteriyo her sayfa için mutlaka bunu düzenle
-
-
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.home,size: 28.0,), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.music_note,size: 28.0,), label: 'Music'),
-          NavigationDestination(icon: Icon(Icons.chat,size: 30.0,), label: 'Yanındayım',),
-          NavigationDestination(icon: Icon(Icons.person,size: 28.0,), label: 'Profilim'),
+        currentIndex: 0,
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Anasayfa',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.music_note),
+            label: 'Müzik',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_outline),
+            label: 'Yanındayım',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: 'Profil',
+          ),
         ],
+        onTap: (i) {
+          if (i == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AnaSayfa()),
+            );
+          }
+          if (i == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const ClassicMusicPlayer()),
+            );
+          }
+          if (i == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PsychologistSelectionScreen()),
+            );
+          }
+          if (i == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => profil()),
+            );
+          }
+        },
       ),
     );
   }
 }
-
-void main() => runApp(MaterialApp(home: TumGorev()));
