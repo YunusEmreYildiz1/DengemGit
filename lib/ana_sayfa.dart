@@ -6,14 +6,17 @@ import 'package:untitled6/list_screen.dart';
 import 'package:untitled6/meditation.dart';
 import 'package:untitled6/mindfulness.dart';
 import 'package:untitled6/profil_sayfa.dart';
+import 'package:untitled6/task_provider.dart';
 import 'package:untitled6/tumunu_gor_gorevler.dart';
 import 'breathe.dart';
 import 'package:untitled6/info_provider.dart';
+import 'package:untitled6/tumunu_gor_bilgilendirme.dart';
 
 class AnaSayfa extends StatelessWidget {
   String _title = infoList[0].title;
   String _description = infoList[0].description;
   String _imagePath = infoList[0].imagePath;
+  late int i;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,12 +65,13 @@ class AnaSayfa extends StatelessWidget {
                     SizedBox(width: 10),
                     Expanded(
                       child: InkWell(
-                        /*onTap: () {
+                        onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Info()),
+                            MaterialPageRoute(
+                                builder: (context) => TumBilgilendirme()),
                           );
-                        }, bu kısmı çözemedim*/
+                        },
                         splashColor: Colors.purple.withOpacity(0.5),
                         highlightColor: Colors.purple.withOpacity(0.3),
                         child: Image.asset(
@@ -115,22 +119,36 @@ class AnaSayfa extends StatelessWidget {
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
-                            print('İş Başvurusu kartına tıklandı');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Info(
+                                      taskList[0].title,
+                                      taskList[0].description,
+                                      taskList[0].imagePath,
+                                      newDescription: taskList[0].references)),
+                            );
                           },
-                          child: _buildTaskCard(
-                              'İş Başvurusu                 ㅤ',
-                              'Okuma Süresi: 10dk',
-                              'assets/images/gorsel7.JPG'),
+                          child: _buildTaskCard(taskList[0].title,
+                              'Okuma Süresi: 10dk', taskList[0].imagePath),
                         ),
                       ),
                       SizedBox(width: 15),
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
-                            print('Topluluk Önünde Konuşmak kartına tıklandı');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Info(
+                                      taskList[1].title,
+                                      taskList[1].description,
+                                      taskList[1].imagePath,
+                                      newDescription: taskList[1].references)),
+                            );
                           },
-                          child: _buildTaskCard('Topluluk Önünde Konuşma',
-                              'Okuma Süresi: 8dk', 'assets/images/gorsel4.JPG'),
+                          child: _buildTaskCard(taskList[1].title,
+                              'Okuma Süresi: 8dk', taskList[1].imagePath),
                         ),
                       ),
                     ],

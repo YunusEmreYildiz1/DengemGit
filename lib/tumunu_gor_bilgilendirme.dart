@@ -4,9 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled6/ana_sayfa.dart';
 import 'package:untitled6/classic_music_player.dart';
 import 'package:untitled6/info.dart';
+import 'package:untitled6/info2.dart';
+import 'package:untitled6/info_provider.dart';
 import 'package:untitled6/list_screen.dart';
 import 'package:untitled6/profil_sayfa.dart';
-import 'package:untitled6/task_provider.dart';
 
 class Task {
   final String title;
@@ -16,57 +17,62 @@ class Task {
   Task({required this.title, required this.subtitle, required this.imagePath});
 }
 
-class TumGorev extends StatelessWidget {
+class TumBilgilendirme extends StatelessWidget {
   final List<Task> tasks = [
     Task(
-      title: taskList[0].title,
+      title: infoList[0].title,
       subtitle: 'Okuma Süresi: 10dk',
-      imagePath: taskList[0].imagePath,
+      imagePath: infoList[0].imagePath, // doğru görseller ayarlanacak
     ),
     Task(
-      title: taskList[1].title,
-      subtitle: 'Okuma Süresi: 10dk',
-      imagePath: taskList[1].imagePath,
+      title: infoList[1].title,
+      subtitle: 'Okuma Süresi: 8dk',
+      imagePath: infoList[1].imagePath,
     ),
     Task(
-      title: taskList[2].title,
+      title: infoList[2].title,
       subtitle: 'Okuma Süresi: 10dk',
-      imagePath: taskList[2].imagePath,
+      imagePath: infoList[2].imagePath,
     ),
     Task(
-      title: taskList[3].title,
+      title: infoList[3].title,
       subtitle: 'Okuma Süresi: 10dk',
-      imagePath: taskList[3].imagePath,
+      imagePath: infoList[3].imagePath,
     ),
     Task(
-      title: taskList[4].title,
+      title: infoList[4].title,
       subtitle: 'Okuma Süresi: 10dk',
-      imagePath: taskList[4].imagePath,
+      imagePath: infoList[4].imagePath,
     ),
     Task(
-      title: taskList[5].title,
+      title: infoList[5].title,
       subtitle: 'Okuma Süresi: 10dk',
-      imagePath: taskList[5].imagePath,
+      imagePath: infoList[5].imagePath,
     ),
     Task(
-      title: taskList[6].title,
+      title: infoList[6].title,
       subtitle: 'Okuma Süresi: 10dk',
-      imagePath: taskList[6].imagePath,
+      imagePath: infoList[6].imagePath,
     ),
     Task(
-      title: taskList[7].title,
+      title: infoList[7].title,
       subtitle: 'Okuma Süresi: 10dk',
-      imagePath: taskList[7].imagePath,
+      imagePath: infoList[7].imagePath,
     ),
     Task(
-      title: taskList[8].title,
+      title: infoList[8].title,
       subtitle: 'Okuma Süresi: 10dk',
-      imagePath: taskList[8].imagePath,
+      imagePath: infoList[8].imagePath,
     ),
     Task(
-      title: taskList[9].title,
+      title: infoList[9].title,
       subtitle: 'Okuma Süresi: 10dk',
-      imagePath: taskList[9].imagePath,
+      imagePath: infoList[9].imagePath,
+    ),
+    Task(
+      title: infoList[10].title,
+      subtitle: 'Okuma Süresi: 10dk',
+      imagePath: infoList[10].imagePath,
     ),
   ];
 
@@ -75,22 +81,12 @@ class TumGorev extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text('GÖREVLER',
+        title: Text('DENGEM SÖZLÜĞÜ',
             style:
-            GoogleFonts.poppins(fontSize: 23, fontWeight: FontWeight.bold)),
+                GoogleFonts.poppins(fontSize: 23, fontWeight: FontWeight.bold)),
         centerTitle: true,
+        backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          //geri tuşuna basıldığında ne olsun
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => AnaSayfa()),
-            );
-          },
-        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -98,7 +94,7 @@ class TumGorev extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '  Tüm Görevler',
+              '  Tüm Terimler',
               style: GoogleFonts.poppins(
                   fontSize: 20, fontWeight: FontWeight.w600),
             ),
@@ -119,10 +115,12 @@ class TumGorev extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => Info(
-                                taskList[index].title,
-                                taskList[index].description,
-                                taskList[index].imagePath,
-                                newDescription: taskList[index].references)),
+                                  infoList[index].title,
+                                  infoList[index].description,
+                                  infoList[index].imagePath,
+                                  newDescription: infoList[index].references,
+                                )),
+
                       );
                     },
                     child: Card(
