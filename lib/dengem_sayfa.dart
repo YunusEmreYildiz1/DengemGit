@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled6/introduction.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -10,48 +11,36 @@ class Dengem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('DENGEM'),
-        backgroundColor: Colors.purple,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: Text(
-                  'DENGEM',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.purple,
-                  ),
+      backgroundColor: Color(0xFF8B70FB),
+      body: GestureDetector(
+        onTap: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => Introduction()),
+          );
+        },
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 200,
+                height: 200,
+                child: Center(
+                  child: Image.asset('assets/images/dengem.png'),
                 ),
               ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              '9:41',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+              SizedBox(height: 10),
+              Container(
+                width: 120,
+                height: 50,
+                child: Center(
+                  child: Image.asset('assets/images/dengemyazi.png'),
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'iPhone',
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ],
+              SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );

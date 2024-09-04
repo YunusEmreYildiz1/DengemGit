@@ -15,11 +15,12 @@ import 'package:untitled6/classic_music_provider.dart';
 import 'package:untitled6/nature_sound_player.dart';
 import 'package:untitled6/mindfulness.dart';
 import 'package:untitled6/meditation.dart';
+import 'package:untitled6/dengem_sayfa.dart';
 
 
 void main() {
   runApp(MaterialApp(
-    home: Meditation(),
+    home: Dengem(),
   ));
 }
 

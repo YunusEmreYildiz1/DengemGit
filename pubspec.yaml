@@ -72,6 +72,7 @@ flutter:
     - assets/audio/meditation/
     - assets/images/anskeyete.png
     - assets/animation/mindfulnnes.riv
+    - assets/images/dengem.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
