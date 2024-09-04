@@ -111,7 +111,7 @@ class _NatureSoundPlayer extends State<NatureSoundPlayer> {
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
                     natureList[musicIndex].albumeImagePath,
-                    height: 250,
+                    height: 320,
                   ),
                 ),
               ),

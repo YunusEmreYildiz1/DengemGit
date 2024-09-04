@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   google_fonts: ^6.0.0
   audioplayers: ^6.1.0
+  flare_flutter: ^3.0.2
+  rive: ^0.13.13
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -69,6 +71,7 @@ flutter:
     - assets/audio/nature/
     - assets/audio/meditation/
     - assets/images/anskeyete.png
+    - assets/animation/mindfulnnes.riv
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

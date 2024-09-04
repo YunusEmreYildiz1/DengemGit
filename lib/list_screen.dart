@@ -72,7 +72,7 @@ class PsychologistSelectionScreen extends StatelessWidget {
                       ListTile(
                         leading: const CircleAvatar(
                           backgroundImage:
-                              AssetImage('assets/images/psikolog_ali.jpeg'),
+                              AssetImage('assets/images/psikolog_ali2.png'),
                         ),
                         title: const Text('Psikolog Ali'),
                         subtitle: const Text('Müsait'),
@@ -84,7 +84,7 @@ class PsychologistSelectionScreen extends StatelessWidget {
                               builder: (context) => const ChatScreen(
                                 psychologistName: 'Psikolog Ali',
                                 psychologistProfilePicture:
-                                    'assets/images/psikolog_ali.jpeg',
+                                    'assets/images/psikolog_ali2.png',
                               ),
                             ),
                           );
@@ -94,7 +94,7 @@ class PsychologistSelectionScreen extends StatelessWidget {
                       ListTile(
                         leading: const CircleAvatar(
                           backgroundImage:
-                              AssetImage('assets/images/psikolog_atlas.jpeg'),
+                              AssetImage('assets/images/psikolog_atlas.png'),
                         ),
                         title: const Text('Psikolog Atlas'),
                         subtitle: const Text('Müsait'),
@@ -106,7 +106,7 @@ class PsychologistSelectionScreen extends StatelessWidget {
                               builder: (context) => const ChatScreen(
                                 psychologistName: 'Psikolog Atlas',
                                 psychologistProfilePicture:
-                                    'assets/images/psikolog_atlas.jpeg',
+                                    'assets/images/psikolog_atlas.png',
                               ),
                             ),
                           );
@@ -116,7 +116,7 @@ class PsychologistSelectionScreen extends StatelessWidget {
                       ListTile(
                         leading: const CircleAvatar(
                           backgroundImage:
-                              AssetImage('assets/images/psikolog_basak.jpeg'),
+                              AssetImage('assets/images/psikolog_basak.png'),
                         ),
                         title: const Text('Psikolog Başak'),
                         subtitle: const Text('Müsait değil'),
@@ -128,7 +128,7 @@ class PsychologistSelectionScreen extends StatelessWidget {
                               builder: (context) => const ChatScreen(
                                 psychologistName: 'Psikolog Başak',
                                 psychologistProfilePicture:
-                                    'assets/images/psikolog_basak.jpeg',
+                                    'assets/images/psikolog_basak.png',
                               ),
                             ),
                           );

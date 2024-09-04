@@ -7,10 +7,19 @@ import 'package:untitled6/breathe.dart';
 import 'package:untitled6/profil_sayfa.dart';
 import 'package:untitled6/info.dart';  // Info sayfasını içe aktarıyoruz
 import 'package:untitled6/info2.dart';
+import 'package:untitled6/chat_screen.dart';
+import 'package:untitled6/list_screen.dart';
+import 'classic_music_player.dart';
+import 'package:untitled6/classic_music_player.dart';
+import 'package:untitled6/classic_music_provider.dart';
+import 'package:untitled6/nature_sound_player.dart';
+import 'package:untitled6/mindfulness.dart';
+import 'package:untitled6/meditation.dart';
+
 
 void main() {
   runApp(MaterialApp(
-    home: Info(),  // Info sayfasını ana sayfa olarak belirliyoruz
+    home: Meditation(),
   ));
 }
 

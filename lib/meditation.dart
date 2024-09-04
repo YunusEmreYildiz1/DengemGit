@@ -64,6 +64,9 @@ class _Meditation extends State<Meditation> {
       ),
       body: Column(
         children: [
+          SizedBox(
+            height: 45.0, // Yükseklik değeri eklenerek boşluk oluşturuluyor
+          ),
           Expanded(
             flex: 2,
             child: Container(

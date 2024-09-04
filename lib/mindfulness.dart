@@ -1,6 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/ana_sayfa.dart';
+import 'package:flare_flutter/flare_actor.dart';
+import 'package:rive/rive.dart';
 
 class Mindfulness extends StatefulWidget {
   const Mindfulness({super.key});
@@ -17,9 +19,18 @@ class _Mindfulness extends State<Mindfulness> {
   bool isRepeating = false;
   Duration duration = Duration.zero;
   Color themeColor = const Color.fromARGB(255, 236, 245, 218);
+  var riveUrl = 'assets/animation/mindfulnnes.riv';
+
+
 
   @override
+
   void initState() {
+
+    //animasyon için
+
+
+
     super.initState();
 
     audioPlayer.onDurationChanged.listen((Duration newDuration) {
@@ -42,13 +53,13 @@ class _Mindfulness extends State<Mindfulness> {
       appBar: AppBar(
         backgroundColor: themeColor,
         title: const Text(
-          'Mindfulness',
+          '    Mindfulness',
           style: TextStyle(
               color: Color.fromARGB(255, 99, 99, 96),
               fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        
+
       ),
       body: Column(
         children: [
@@ -64,13 +75,13 @@ class _Mindfulness extends State<Mindfulness> {
                 alignment: Alignment.bottomCenter,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Image.asset(
-                    'assets/images/mindfulness.png',
+                  child: RiveAnimation.asset(
+                    'assets/animation/mindfulnnes.riv',
+                  ),
+                  ),
                   ),
                 ),
               ),
-            ),
-          ),
           Expanded(
             flex: 2,
             child: Column(

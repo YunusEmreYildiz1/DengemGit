@@ -101,22 +101,28 @@ class _ClassicMusicPlayer extends State<ClassicMusicPlayer> {
             flex: 2,
             child: Container(
               decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(150),
-                      bottomRight: Radius.circular(150)),
-                  color: themeColor),
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.asset(
-                    classicList[musicIndex].albumeImagePath,
-                    height: 250,
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(150),
+                  bottomRight: Radius.circular(150),
+                ),
+                color: themeColor,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20.0), // 20 birim aşağı kaydırma
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      classicList[musicIndex].albumeImagePath,
+                      height: 320,
+                    ),
                   ),
                 ),
               ),
             ),
           ),
+
           Expanded(
             flex: 2,
             child: Column(

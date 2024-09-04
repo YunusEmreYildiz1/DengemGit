@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
-
-
 class ChatScreen extends StatelessWidget {
   final String psychologistName, psychologistProfilePicture;
 
-  const ChatScreen({super.key, required this.psychologistName, required this.psychologistProfilePicture});
+  const ChatScreen({
+    Key? key,
+    required this.psychologistName,
+    required this.psychologistProfilePicture,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -19,25 +22,25 @@ class ChatScreen extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: Text(
-          psychologistName,
-          style: const TextStyle(color: Colors.black),
+        title: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                psychologistName,
+                style: const TextStyle(color: Colors.black, fontSize: 18),
+              ),
+              const Text(
+                "Müsait", // Durumu gösteren alan
+                style: TextStyle(color: Colors.green, fontSize: 14),
+              ),
+            ],
+          ),
         ),
         actions: [
-          PopupMenuButton<String>(
-            onSelected: (value) {
-              if (value == 'Back') {
-                Navigator.pop(context);
-              }
-            },
-            itemBuilder: (BuildContext context) {
-              return {'Back'}.map((String choice) {
-                return PopupMenuItem<String>(
-                  value: choice,
-                  child: Text(choice),
-                );
-              }).toList();
-            },
+          IconButton(
+            icon: const Icon(Icons.more_vert, color: Colors.black),
+            onPressed: () {},
           ),
         ],
       ),
@@ -45,6 +48,7 @@ class ChatScreen extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
               children: <Widget>[
                 const ChatBubble(
                   text: "Selam",
@@ -78,12 +82,11 @@ class ChatScreen extends StatelessWidget {
                   time: "9:37",
                   isRead: true,
                 ),
-                ChatBubble(
+                const ChatBubble(
                   text: "Offf...",
                   isSentByMe: true,
                   time: "9:39",
                   isRead: true,
-                  profileImage: AssetImage(psychologistProfilePicture),
                 ),
               ],
             ),
@@ -95,6 +98,7 @@ class ChatScreen extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
                       hintText: "Mesaj yazınız",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20.0),
@@ -122,35 +126,45 @@ class ChatBubble extends StatelessWidget {
   final bool isRead;
   final AssetImage? profileImage;
 
-  const ChatBubble({super.key, 
+  const ChatBubble({
+    Key? key,
     required this.text,
     required this.isSentByMe,
     required this.time,
     required this.isRead,
     this.profileImage,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(vertical: 6.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment:
-            isSentByMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+        isSentByMe ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: <Widget>[
           if (!isSentByMe && profileImage != null)
             CircleAvatar(
+              radius: 18, // Profil resminin boyutu
+              backgroundColor: Colors.transparent,
               backgroundImage: profileImage,
             ),
           const SizedBox(width: 8),
           Flexible(
             child: Container(
               decoration: BoxDecoration(
-                color: isSentByMe ? Colors.blue[100] : Colors.grey[200],
-                borderRadius: BorderRadius.circular(15),
+                color: isSentByMe ? Colors.blue[50] : Colors.grey[200],
+                borderRadius: BorderRadius.only(
+                  topLeft: const Radius.circular(15),
+                  topRight: const Radius.circular(15),
+                  bottomLeft:
+                  isSentByMe ? const Radius.circular(15) : Radius.zero,
+                  bottomRight:
+                  isSentByMe ? Radius.zero : const Radius.circular(15),
+                ),
               ),
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -170,8 +184,7 @@ class ChatBubble extends StatelessWidget {
                           color: Colors.grey,
                         ),
                       ),
-                      if (isSentByMe)
-                        const SizedBox(width: 5),
+                      if (isSentByMe) const SizedBox(width: 5),
                       if (isSentByMe && isRead)
                         const Icon(
                           Icons.done_all,

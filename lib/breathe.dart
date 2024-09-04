@@ -22,7 +22,7 @@ class _BreatheState extends State<Breathe> with SingleTickerProviderStateMixin {
       duration: Duration(seconds: 5),
     );
 
-    _animation = Tween<double>(begin: 70.0, end: 200.0).animate(_controller)
+    _animation = Tween<double>(begin: 70.0, end: 150.0).animate(_controller)
       ..addStatusListener((status) async {
         if (status == AnimationStatus.completed) {
           setState(() {
