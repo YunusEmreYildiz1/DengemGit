@@ -20,32 +20,32 @@ class TumGorev extends StatelessWidget {
   final List<Task> tasks = [
     Task(
       title: taskList[0].title,
-      subtitle: 'Okuma Süresi: 10dk',
+      subtitle: 'Okuma Süresi: 5dk',
       imagePath: taskList[0].imagePath,
     ),
     Task(
       title: taskList[1].title,
-      subtitle: 'Okuma Süresi: 10dk',
+      subtitle: 'Okuma Süresi: 7dk',
       imagePath: taskList[1].imagePath,
     ),
     Task(
       title: taskList[2].title,
-      subtitle: 'Okuma Süresi: 10dk',
+      subtitle: 'Okuma Süresi: 6dk',
       imagePath: taskList[2].imagePath,
     ),
     Task(
       title: taskList[3].title,
-      subtitle: 'Okuma Süresi: 10dk',
+      subtitle: 'Okuma Süresi: 9dk',
       imagePath: taskList[3].imagePath,
     ),
     Task(
       title: taskList[4].title,
-      subtitle: 'Okuma Süresi: 10dk',
+      subtitle: 'Okuma Süresi: 5dk',
       imagePath: taskList[4].imagePath,
     ),
     Task(
       title: taskList[5].title,
-      subtitle: 'Okuma Süresi: 10dk',
+      subtitle: 'Okuma Süresi: 12dk',
       imagePath: taskList[5].imagePath,
     ),
     Task(
@@ -55,17 +55,17 @@ class TumGorev extends StatelessWidget {
     ),
     Task(
       title: taskList[7].title,
-      subtitle: 'Okuma Süresi: 10dk',
+      subtitle: 'Okuma Süresi: 11dk',
       imagePath: taskList[7].imagePath,
     ),
     Task(
       title: taskList[8].title,
-      subtitle: 'Okuma Süresi: 10dk',
+      subtitle: 'Okuma Süresi: 12dk',
       imagePath: taskList[8].imagePath,
     ),
     Task(
       title: taskList[9].title,
-      subtitle: 'Okuma Süresi: 10dk',
+      subtitle: 'Okuma Süresi: 8dk',
       imagePath: taskList[9].imagePath,
     ),
   ];
@@ -220,7 +220,7 @@ class TumGorev extends StatelessWidget {
             style: GoogleFonts.poppins(
                 fontSize: 11, fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 45),
           Text(
             subtitle,
             textAlign: TextAlign.center,

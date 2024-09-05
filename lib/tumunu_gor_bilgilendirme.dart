@@ -74,6 +74,11 @@ class TumBilgilendirme extends StatelessWidget {
       subtitle: 'Okuma Süresi: 10dk',
       imagePath: infoList[10].imagePath,
     ),
+    Task(
+      title: infoList[11].title,
+      subtitle: 'Okuma Süresi: 10dk',
+      imagePath: infoList[11].imagePath,
+    ),
   ];
 
   @override
@@ -83,7 +88,7 @@ class TumBilgilendirme extends StatelessWidget {
       appBar: AppBar(
         title: Text('DENGEM SÖZLÜĞÜ',
             style:
-            GoogleFonts.poppins(fontSize: 23, fontWeight: FontWeight.bold)),
+            GoogleFonts.poppins(fontSize: 21, fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -94,9 +99,9 @@ class TumBilgilendirme extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '  Tüm Terimler',
+              '  Tüm Bilgilendirmeler',
               style: GoogleFonts.poppins(
-                  fontSize: 20, fontWeight: FontWeight.w600),
+                  fontSize: 17, fontWeight: FontWeight.w600),
             ),
             SizedBox(height: 16),
             Expanded(
@@ -218,7 +223,7 @@ class TumBilgilendirme extends StatelessWidget {
             style: GoogleFonts.poppins(
                 fontSize: 11, fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 50),
           Text(
             subtitle,
             textAlign: TextAlign.center,

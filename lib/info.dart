@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Info extends StatefulWidget {
   final String title;
@@ -130,7 +131,7 @@ class _InfoState extends State<Info> {
                                     child: Text(
                                       _title,
                                       style: const TextStyle(
-                                        fontSize: 24,
+                                        fontSize: 20,
                                         color: Colors.black,
                                       ),
                                     ),
@@ -145,8 +146,9 @@ class _InfoState extends State<Info> {
                               const Text(
                                 'Hakkında',
                                 style: TextStyle(
-                                  fontSize: 24,
+                                  fontSize: 18,
                                   color: Colors.black,
+                                  fontWeight: FontWeight.bold, // Metni kalın yapmak için FontWeight.bold ekledik
                                 ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
