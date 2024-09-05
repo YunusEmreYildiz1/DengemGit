@@ -5,11 +5,13 @@ class Info extends StatefulWidget {
   final String description;
   final String imagePath;
   final String newDescription;
+  final String imagePath2;
 
   const Info(
       this.title,
       this.description,
-      this.imagePath, {
+      this.imagePath,
+      this.imagePath2, {
         Key? key,
         required this.newDescription,
       }) : super(key: key);
@@ -21,7 +23,7 @@ class Info extends StatefulWidget {
 class _InfoState extends State<Info> {
   late String _title;
   late String _description;
-  late String _imagePath;
+  late String _imagePath2;
   bool _isOldDescription = true;
   final DraggableScrollableController _scrollableController =
   DraggableScrollableController();
@@ -33,7 +35,7 @@ class _InfoState extends State<Info> {
 
     _title = widget.title;
     _description = widget.description;
-    _imagePath = widget.imagePath;
+    _imagePath2 = widget.imagePath2;
 
     _scrollableController.addListener(() {
       setState(() {
@@ -72,7 +74,7 @@ class _InfoState extends State<Info> {
                     child: Transform.scale(
                       scale: 1.65,
                       child: Image.asset(
-                        _imagePath,
+                        _imagePath2,
                         width: 500,
                         height: 400,
                       ),

@@ -77,13 +77,12 @@ class TumGorev extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text('GÖREVLER',
-            style:
-            GoogleFonts.poppins(fontSize: 23, fontWeight: FontWeight.bold)),
+            style: GoogleFonts.poppins(
+                fontSize: 23, fontWeight: FontWeight.bold)),
         centerTitle: true,
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
-          //geri tuşuna basıldığında ne olsun
           onPressed: () {
             Navigator.push(
               context,
@@ -122,48 +121,14 @@ class TumGorev extends StatelessWidget {
                                 taskList[index].title,
                                 taskList[index].description,
                                 taskList[index].imagePath,
+                                taskList[index].imagePath2,
                                 newDescription: taskList[index].references)),
                       );
                     },
-                    child: Card(
-                      color: Colors.white, //kart rengi
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      elevation: 4,
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: Image.asset(
-                                tasks[index].imagePath,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  tasks[index].title,
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(height: 4),
-                                Text(
-                                  tasks[index].subtitle,
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.grey[600]),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                    child: _buildTaskCard(
+                      tasks[index].title,
+                      tasks[index].subtitle,
+                      tasks[index].imagePath,
                     ),
                   );
                 },
@@ -222,6 +187,46 @@ class TumGorev extends StatelessWidget {
             );
           }
         },
+      ),
+    );
+  }
+
+  Widget _buildTaskCard(String title, String subtitle, String imagePath) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.41),
+            spreadRadius: 3,
+            blurRadius: 5,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Image.asset(
+            imagePath,
+            height: 82,
+            fit: BoxFit.contain,
+          ),
+          SizedBox(height: 10),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(
+                fontSize: 11, fontWeight: FontWeight.w600),
+          ),
+          SizedBox(height: 40),
+          Text(
+            subtitle,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(fontSize: 9),
+          ),
+        ],
       ),
     );
   }

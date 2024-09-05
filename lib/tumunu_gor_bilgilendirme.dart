@@ -22,7 +22,7 @@ class TumBilgilendirme extends StatelessWidget {
     Task(
       title: infoList[0].title,
       subtitle: 'Okuma Süresi: 10dk',
-      imagePath: infoList[0].imagePath, // doğru görseller ayarlanacak
+      imagePath: infoList[0].imagePath,
     ),
     Task(
       title: infoList[1].title,
@@ -83,7 +83,7 @@ class TumBilgilendirme extends StatelessWidget {
       appBar: AppBar(
         title: Text('DENGEM SÖZLÜĞÜ',
             style:
-                GoogleFonts.poppins(fontSize: 23, fontWeight: FontWeight.bold)),
+            GoogleFonts.poppins(fontSize: 23, fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -115,53 +115,18 @@ class TumBilgilendirme extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => Info(
-                                  infoList[index].title,
-                                  infoList[index].description,
-                                  infoList[index].imagePath,
-                                  newDescription: infoList[index].references,
-                                )),
-
+                              infoList[index].title,
+                              infoList[index].description,
+                              infoList[index].imagePath,
+                              infoList[index].imagePath2,
+                              newDescription: infoList[index].references,
+                            )),
                       );
                     },
-                    child: Card(
-                      color: Colors.white, //kart rengi
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      elevation: 4,
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: Image.asset(
-                                tasks[index].imagePath,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  tasks[index].title,
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(height: 4),
-                                Text(
-                                  tasks[index].subtitle,
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.grey[600]),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                    child: _buildTaskCard(
+                      tasks[index].title,
+                      tasks[index].subtitle,
+                      tasks[index].imagePath,
                     ),
                   );
                 },
@@ -220,6 +185,46 @@ class TumBilgilendirme extends StatelessWidget {
             );
           }
         },
+      ),
+    );
+  }
+
+  Widget _buildTaskCard(String title, String subtitle, String imagePath) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.41),
+            spreadRadius: 3,
+            blurRadius: 5,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Image.asset(
+            imagePath,
+            height: 82,
+            fit: BoxFit.contain,
+          ),
+          SizedBox(height: 10),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(
+                fontSize: 11, fontWeight: FontWeight.w600),
+          ),
+          SizedBox(height: 40),
+          Text(
+            subtitle,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(fontSize: 9),
+          ),
+        ],
       ),
     );
   }

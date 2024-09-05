@@ -126,6 +126,7 @@ class AnaSayfa extends StatelessWidget {
                                       taskList[0].title,
                                       taskList[0].description,
                                       taskList[0].imagePath,
+                                      taskList[0].imagePath2,
                                       newDescription: taskList[0].references)),
                             );
                           },
@@ -144,6 +145,7 @@ class AnaSayfa extends StatelessWidget {
                                       taskList[1].title,
                                       taskList[1].description,
                                       taskList[1].imagePath,
+                                      taskList[1].imagePath2,
                                       newDescription: taskList[1].references)),
                             );
                           },

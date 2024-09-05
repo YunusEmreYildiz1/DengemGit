@@ -24,8 +24,8 @@ class Dengem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 200,
-                height: 200,
+                width: 180,
+                height: 180,
                 child: Center(
                   child: Image.asset('assets/images/dengem.png'),
                 ),
