@@ -9,13 +9,13 @@ class Info extends StatefulWidget {
   final String imagePath2;
 
   const Info(
-      this.title,
-      this.description,
-      this.imagePath,
-      this.imagePath2, {
-        Key? key,
-        required this.newDescription,
-      }) : super(key: key);
+    this.title,
+    this.description,
+    this.imagePath,
+    this.imagePath2, {
+    Key? key,
+    required this.newDescription,
+  }) : super(key: key);
 
   @override
   State<Info> createState() => _InfoState();
@@ -27,7 +27,7 @@ class _InfoState extends State<Info> {
   late String _imagePath2;
   bool _isOldDescription = true;
   final DraggableScrollableController _scrollableController =
-  DraggableScrollableController();
+      DraggableScrollableController();
   bool _isFullyOpened = false;
 
   @override
@@ -54,7 +54,8 @@ class _InfoState extends State<Info> {
   void _toggleDescription() {
     setState(() {
       _isOldDescription = !_isOldDescription;
-      _description = _isOldDescription ? widget.description : widget.newDescription;
+      _description =
+          _isOldDescription ? widget.description : widget.newDescription;
     });
   }
 
@@ -117,7 +118,8 @@ class _InfoState extends State<Info> {
                                 child: Container(
                                   width: 40,
                                   height: 5,
-                                  margin: const EdgeInsets.symmetric(vertical: 10),
+                                  margin:
+                                      const EdgeInsets.symmetric(vertical: 10),
                                   decoration: BoxDecoration(
                                     color: Colors.grey,
                                     borderRadius: BorderRadius.circular(10),
@@ -148,7 +150,8 @@ class _InfoState extends State<Info> {
                                 style: TextStyle(
                                   fontSize: 18,
                                   color: Colors.black,
-                                  fontWeight: FontWeight.bold, // Metni kalın yapmak için FontWeight.bold ekledik
+                                  fontWeight: FontWeight
+                                      .bold, // Metni kalın yapmak için FontWeight.bold ekledik
                                 ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,

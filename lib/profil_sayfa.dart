@@ -30,8 +30,7 @@ class profil extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) => AnaSayfa()),
+              MaterialPageRoute(builder: (context) => AnaSayfa()),
             );
           },
         ),
@@ -126,9 +125,11 @@ class profil extends StatelessWidget {
         backgroundColor: Colors.white,
         currentIndex: 0,
         type: BottomNavigationBarType.fixed,
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(
+              Icons.home,
+            ),
             label: 'Anasayfa',
           ),
           BottomNavigationBarItem(
@@ -168,8 +169,7 @@ class profil extends StatelessWidget {
           if (i == 3) {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) => profil()),
+              MaterialPageRoute(builder: (context) => profil()),
             );
           }
         },

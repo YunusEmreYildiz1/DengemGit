@@ -75,6 +75,9 @@ flutter:
     - assets/images/dengem.png
     - assets/images/gorsell3.JPG
     - assets/images/bilgi_resimleri/
+    - assets/images/gorev_resimleri/
+    - assets/images/gorev_resimleri/hayir1.jpg
+    - assets/images/gorev_resimleri/hayir2.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

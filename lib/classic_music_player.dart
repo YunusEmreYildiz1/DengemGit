@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:untitled6/ana_sayfa.dart';
 import 'package:untitled6/nature_sound_player.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/classic_music_provider.dart';
@@ -19,7 +20,7 @@ class _ClassicMusicPlayer extends State<ClassicMusicPlayer> {
   Duration duration = Duration.zero;
   int musicIndex = 1;
   Color themeColor = const Color.fromARGB(255, 218, 157, 74);
-  
+
   @override
   void initState() {
     super.initState();
@@ -42,13 +43,24 @@ class _ClassicMusicPlayer extends State<ClassicMusicPlayer> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        actions: [
+          IconButton(
+              icon: new Icon(Icons.close, color: Colors.white),
+              onPressed: () {
+                audioPlayer.pause();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AnaSayfa()),
+                );
+              }),
+        ],
         backgroundColor: themeColor,
-        title: const Text('Klasik Müzik',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        title: const Text('Klasik Müzik',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         centerTitle: true,
-        
-        
       ),
-      endDrawer: Drawer(
+      drawer: Drawer(
         backgroundColor: Colors.white,
         child: Column(
           children: [
@@ -108,7 +120,8 @@ class _ClassicMusicPlayer extends State<ClassicMusicPlayer> {
                 color: themeColor,
               ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 20.0), // 20 birim aşağı kaydırma
+                padding:
+                    const EdgeInsets.only(top: 20.0), // 20 birim aşağı kaydırma
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: ClipRRect(
@@ -122,7 +135,6 @@ class _ClassicMusicPlayer extends State<ClassicMusicPlayer> {
               ),
             ),
           ),
-
           Expanded(
             flex: 2,
             child: Column(

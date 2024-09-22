@@ -266,7 +266,7 @@ class AnaSayfa extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
             style:
-            GoogleFonts.poppins(fontSize: 11, fontWeight: FontWeight.w600),
+                GoogleFonts.poppins(fontSize: 11, fontWeight: FontWeight.w600),
           ),
           SizedBox(height: 40),
           Positioned(
@@ -343,7 +343,7 @@ class AnaSayfa extends StatelessWidget {
           child: Text(
             title,
             style:
-            GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.w600),
+                GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.w600),
           ),
         ),
       ),

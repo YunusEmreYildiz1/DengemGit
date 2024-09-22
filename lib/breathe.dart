@@ -19,7 +19,7 @@ class _BreatheState extends State<Breathe> with SingleTickerProviderStateMixin {
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 5),
+      duration: Duration(seconds: 4),
     );
 
     _animation = Tween<double>(begin: 70.0, end: 150.0).animate(_controller)
@@ -28,10 +28,10 @@ class _BreatheState extends State<Breathe> with SingleTickerProviderStateMixin {
           setState(() {
             _statusText = "Nefes Ver";
           });
-          await Future.delayed(Duration(seconds: 1));
-          _controller.duration = Duration(seconds: 3);
+          await Future.delayed(Duration(seconds: 4));
+          _controller.duration = Duration(seconds: 4);
           _controller.reverse();
-        } else if (status == AnimationStatus.dismissed) {
+        }else if (status == AnimationStatus.dismissed) {
           setState(() {
             _statusText = "Nefes Al";
           });

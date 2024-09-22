@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:untitled6/ana_sayfa.dart';
 import 'package:untitled6/classic_music_player.dart';
 import 'package:untitled6/nature_sound_provider.dart';
 import 'package:flutter/material.dart';
@@ -42,13 +43,24 @@ class _NatureSoundPlayer extends State<NatureSoundPlayer> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        actions: [
+          IconButton(
+              icon: new Icon(Icons.close, color: Colors.white),
+              onPressed: () {
+                audioPlayer.pause();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AnaSayfa()),
+                );
+              }),
+        ],
         backgroundColor: themeColor,
         title: const Text('Doğa Sesleri',
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         centerTitle: true,
-        
       ),
-      endDrawer: Drawer(
+      drawer: Drawer(
         backgroundColor: Colors.white,
         child: Column(
           children: [
